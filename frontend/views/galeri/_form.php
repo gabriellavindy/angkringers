@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
-use frontend\models\Angkringan;
+use common\models\Angkringan;
 
 $list_angkringan = ArrayHelper::map(Angkringan::find()->asArray()->all(), 'id', 'nama');
 /* @var $this yii\web\View */

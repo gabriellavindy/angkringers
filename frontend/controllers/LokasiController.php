@@ -3,8 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Angkringan;
-use frontend\models\AngkringanSearch;
+use common\models\Angkringan;
+use common\models\AngkringanSearch;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 use yii\filters\VerbFilter;

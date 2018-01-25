@@ -15,9 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Tambah Galeri', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php if(!Yii::$app->user->isGuest) {?>
+        <p>
+            <?= Html::a('Tambah Galeri', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+    <?php } ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -34,7 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => 'yii\grid\ActionColumn', 
                 'contentOptions' => ["style"=>"text-align:center;white-space:nowrap;"],
-                'header' => 'Aksi'
+                'header' => 'Aksi',
+                'visible' => Yii::$app->user->isAllowed('admin')
             ],
         ],
     ]); ?>

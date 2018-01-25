@@ -12,7 +12,7 @@ use common\models\Komentar;
  *
  * @property integer $id
  * @property integer $id_user
- * @property integer $id_parent
+ * @property integer $id_angkringan
  * @property string $komentar
  *
  * @property User $idUser
@@ -26,7 +26,7 @@ class KomentarSearch extends Komentar
     public function rules()
     {
         return [
-            [['id_user', 'id_parent'], 'integer'],
+            [['id_user', 'id_angkringan'], 'integer'],
             [['id_user', 'komentar'], 'safe'],
         ];
     }
@@ -65,7 +65,7 @@ class KomentarSearch extends Komentar
 
         $query->andFilterWhere([
             'id_user' => $this->id_user,
-            'id_parent' => $this->id_parent,
+            'id_angkringan' => $this->id_angkringan,
         ]);
 
         $query->andFilterWhere(['like', 'komentar', $this->komentar]);

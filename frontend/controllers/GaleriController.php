@@ -8,8 +8,8 @@ use yii\web\UploadedFile;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\models\Makanan;
-use frontend\models\MakananSearch;
+use common\models\Makanan;
+use common\models\MakananSearch;
 
 /**
  * GaleriController implements the CRUD actions for Makanan model.
@@ -75,7 +75,8 @@ class GaleriController extends Controller
 
         if ($model->load(Yii::$app->request->post())){
             $model->gambar = UploadedFile::getInstance($model, 'gambar');
-            if($model->upload() && $model->save()) {
+            if($model->upload()) {
+                $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {

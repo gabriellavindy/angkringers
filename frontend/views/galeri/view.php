@@ -31,6 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'nama',
             'id_angkringan',
             'harga',
+            [
+                'attribute'=>'photo',
+                'value' =>  Html::img(Yii::$app->request->baseUrl.'/file/'.$model->gambar, ['alt'=>$model->gambar, 'class'=>'thing', 'width' => '360px'], ['site/zoom']),
+                'format' => ['raw'],
+            ],
         ],
     ]) ?>
 

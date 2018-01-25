@@ -7,7 +7,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use frontend\models\Angkringan;
+use common\models\Angkringan;
+use common\models\Makanan;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -69,8 +70,10 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $angkringan_list = Angkringan::find()->limit(6)->all();
+        $makanan_list = Makanan::find()->limit(6)->all();
         return $this->render('index', [
                 'angkringan_list' => $angkringan_list,
+                'makanan_list' => $makanan_list,
             ]);
     }
 

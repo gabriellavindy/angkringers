@@ -1,7 +1,11 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+use common\models\Angkringan;
+
+$list_angkringan = ArrayHelper::map(Angkringan::find()->asArray()->all(), 'id', 'nama');
 
 /* @var $this yii\web\View */
 /* @var $model app\models\AuthRule */
@@ -17,7 +21,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	    <?php $form = ActiveForm::begin(); ?>
 
-	    <?= $form->field($model, 'id_user')->textInput(['maxlength' => true]) ?>
+		<?=$form->field($model, 'id_angkringan')->dropDownList(
+            $list_angkringan,           
+            ['prompt'=>'--Pilih Angkringan--']   
+        );?>
 
 	    <?= $form->field($model, 'komentar')->textarea(['rows' => 3]) ?>
 	    

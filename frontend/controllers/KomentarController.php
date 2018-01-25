@@ -3,11 +3,12 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Komentar;
-use frontend\models\KomentarSearch;
+use common\models\Komentar;
+use common\models\KomentarSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * KomentarController implements the CRUD actions for Komentar model.
